@@ -25,8 +25,7 @@ public class Turtle extends Animal{
         if (o.getForce() < 5){
             return true;
         }
-        //return super.collision(o);
-        return true;
+        return super.collision(o);
     }
 
 }

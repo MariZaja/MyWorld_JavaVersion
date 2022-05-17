@@ -31,4 +31,8 @@ public abstract class Plant extends Organism {
         }
         setProbabilityOfSpreading();
     }
+
+    public boolean collision(Organism o) {
+        return super.collision(o);
+    }
 }

@@ -16,4 +16,8 @@ public abstract class Animal extends Organism {
         }
     }
 
+    public boolean collision(Organism o) {
+        return super.collision(o);
+    }
+
 }

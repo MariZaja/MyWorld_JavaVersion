@@ -33,7 +33,7 @@ public abstract class Organism {
         } else if (o.getForce() == this.getForce()) {
             if (o.getID() == ID) {
                 //world.setCommentary(1, o->getID(), this->getID());
-                //o.multiply(organismX, organismY);
+                o.multiply(organismX, organismY);
                 return true;
             } else {
                 //world.setCommentary(0, o->getID(), this->getID());
@@ -96,14 +96,14 @@ public abstract class Organism {
         force += f;
     }
 
-    /*void Organism::multiply(int x, int y) {
-        bool stop=false;
+    public void multiply(int x, int y) {
+        boolean stop = false;
         while(!stop){
             setDestination(1);
             if (toX != x && toY != y && world.checkPosition(toX, toY)){ stop = true; }
         }
-        if (world.organisms[toX*world.getWorldY()+toY] == NULL){ world.setNewOrganism(toX, toY, ID); }
-    }*/
+        if (world.organisms[toX*world.getWorldY()+toY] == null){ world.setNewOrganism(toX, toY, ID); }
+    }
 
     public void setForce(int f) {
         force = f;

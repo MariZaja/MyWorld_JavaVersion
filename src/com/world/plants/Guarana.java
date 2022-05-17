@@ -2,6 +2,7 @@ package com.world.plants;
 
 import com.world.Organism;
 import com.world.World;
+import com.world.animals.Human;
 
 public class Guarana extends Plant{
 
@@ -14,9 +15,8 @@ public class Guarana extends Plant{
     }
 
     public boolean collision(Organism o) {
-    //    if (o->getID() != HUMAN){ o->forceBoost(3); }
-    //    return super.collision(o);
-        return true;
+        if (!(o instanceof Human)){ o.forceBoost(3); }
+        return super.collision(o);
     }
 
 }

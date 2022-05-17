@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class World {
     private static final int MAX_INITIATIVE = 8;
-    private static final int START_NUMBER_OF_ORGANISMS = 15;
+    private static final int START_NUMBER_OF_ORGANISMS = 100;
     private static final int DIFFRENT_ORGANISMS = 10;
     protected Random rand;
     int worldX, worldY;
@@ -94,7 +94,6 @@ public class World {
     void printArea() {
         for (int x=0; x<worldX; x++){
             for (int y=0; y<worldY; y++){
-                System.out.print(y*worldX+x);
                 if (organisms[y*worldX+x] == null){
                     System.out.print('-');
                 }
@@ -145,9 +144,9 @@ public class World {
             organisms[to].setPosition(toX, toY);
         }
         else if(organisms[to] != null && checkPosition(toX, toY)){
-            //if (!organisms[to].collision(organisms[from])){
-            //    move(fromX, fromY, toX, toY);
-            //}
+            if (!organisms[to].collision(organisms[from])){
+                move(fromX, fromY, toX, toY);
+            }
         }
     }
 

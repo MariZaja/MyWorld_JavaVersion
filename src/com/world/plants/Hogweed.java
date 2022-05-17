@@ -2,10 +2,9 @@ package com.world.plants;
 
 import com.world.Organism;
 import com.world.World;
+import com.world.animals.Animal;
 
 public class Hogweed extends Plant{
-
-    private static final int IF_ANIMAL = 4;
 
     public Hogweed(World w, int x, int y) {
         super(w, x, y);
@@ -23,7 +22,7 @@ public class Hogweed extends Plant{
             while(b<2){
                 target = (organismX+a)*world.getWorldY()+(organismY+b);
                 if (world.checkPosition(organismX+a, organismY+b)){
-                    if (world.organisms[target] != null && world.organisms[target].getID()>IF_ANIMAL){
+                    if (world.organisms[target] != null && world.organisms[target] instanceof Animal){
                         //world.setCommentary(0, this->getID(), world.organisms[target]->getID());
                         world.deleteOrganism(organismX+a, organismY+b);
                     }
@@ -34,12 +33,11 @@ public class Hogweed extends Plant{
     }
 
     public boolean collision(Organism o) {
-        /*if (o->getID()>IF_ANIMAL){
-            world.deleteOrganism(o->getOrganismX(), o->getOrganismY());
+        if (o instanceof Animal){
+            world.deleteOrganism(o.getOrganismX(), o.getOrganismY());
             return true;
         }
-        return Organism::collision(o);*/
-        return true;
+        return super.collision(o);
     }
 
 }
