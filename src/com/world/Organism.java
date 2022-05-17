@@ -44,6 +44,8 @@ public abstract class Organism {
         }
     }*/
 
+    public void action() {}
+
     public int getColor() {
         return color;
     }
@@ -106,7 +108,5 @@ public abstract class Organism {
     public void setInitiative(int i) {
         initiative = i;
     }
-
-    public void action() {}
 
 }
