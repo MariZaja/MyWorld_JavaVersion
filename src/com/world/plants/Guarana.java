@@ -9,6 +9,8 @@ public class Guarana extends Plant{
         super(w, x, y);
         force = 0;
         ID = 2;
+        color = 16711807;
+        name = "Guarana";
     }
 
     public boolean collision(Organism o) {

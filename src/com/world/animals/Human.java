@@ -9,8 +9,9 @@ public class Human extends Organism {
 
     public Human(World w, int x, int y) {
         super(w, x, y);
-        color = 15060223;
+        color = 0;
         initiative = 4;
+        name = "Human";
     }
 
     public void setDirection(int d) {

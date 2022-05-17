@@ -9,6 +9,8 @@ public class Fox extends Animal{
         force = 3;
         initiative = 7;
         ID = 7;
+        color = 16744448;
+        name = "Fox";
     }
 
     public void action() {

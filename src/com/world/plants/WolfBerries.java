@@ -9,6 +9,8 @@ public class WolfBerries extends Plant{
         super(w, x, y);
         force = 99;
         ID = 3;
+        color = 3342438;
+        name = "Wolf Berries";
     }
 
     public boolean collision(Organism o) {

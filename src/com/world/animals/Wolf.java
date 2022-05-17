@@ -9,6 +9,8 @@ public class Wolf extends Animal{
         force = 9;
         initiative = 5;
         ID = 5;
+        color = 8421504;
+        name = "Wolf";
     }
 
 }

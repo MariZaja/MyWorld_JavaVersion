@@ -9,6 +9,8 @@ public class Hogweed extends Plant{
         super(w, x, y);
         force = 10;
         ID = 4;
+        color = 10066176;
+        name = "Hogweed";
     }
 
     public void action() {

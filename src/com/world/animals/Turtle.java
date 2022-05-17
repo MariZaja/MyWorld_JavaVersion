@@ -10,6 +10,8 @@ public class Turtle extends Animal{
         force = 2;
         initiative = 1;
         ID = 8;
+        color = 6684672;
+        name = "Turtle";
     }
 
     public void action() {

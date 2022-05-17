@@ -9,6 +9,8 @@ public class Sheep extends Animal{
         force = 4;
         initiative = 4;
         ID = 6;
+        color = 3381759;
+        name = "Sheep";
     }
 
 }

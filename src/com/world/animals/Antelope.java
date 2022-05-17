@@ -9,7 +9,8 @@ public class Antelope extends Animal {
         force = 4;
         initiative = 4;
         ID = 9;
-        color = 16757350;
+        color = 16711680;
+        name = "Antelope";
     }
 
     public void action() {

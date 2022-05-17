@@ -8,6 +8,8 @@ public class Dandelion extends Plant{
         super(w, x, y);
         force = 0;
         ID = 1;
+        color = 16777011;
+        name = "Dandelion";
     }
 
     public void action() {

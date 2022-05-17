@@ -1,13 +1,20 @@
 package com.world;
 
+import com.world.plants.*;
+import com.world.animals.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.ImageObserver;
+import java.text.AttributedCharacterIterator;
 
 
 public class Board extends JFrame implements ActionListener, KeyListener
 {
     public static final int SIZE = 20;
+    private Color[] colors;
+    JPanel listener;
     protected JLabel instText, widthL, heightL;
     protected JTextField inst, widthT, heightT;
     protected JButton button;
@@ -51,16 +58,11 @@ public class Board extends JFrame implements ActionListener, KeyListener
         add(button);
         button.addActionListener(this);
 
-
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-    }
-
-    public static void main(String[] args)
-    {
-        //Board app = new Board();
-        //app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //app.setVisible(true);
+        addKeyListener(this);
+        setFocusable(true);
+        setFocusTraversalKeysEnabled(true);
     }
 
     public void setSquareBoard()
@@ -68,21 +70,14 @@ public class Board extends JFrame implements ActionListener, KeyListener
         getContentPane().removeAll();
         getContentPane().repaint();
 
-        instText = new JLabel("Instruction: ");
-        instText.setBounds(x*SIZE + 20, 20, 80, 20);
-        add(instText);
-
-        inst = new JTextField();
-        inst.setBounds(x*SIZE + 100, 20, 30, 20);
-        add(inst);
-        inst.addKeyListener(this);
-
         for(int i=0; i < x; i++) {
             for(int j=0; j < y; j++) {
                 add(board[j*x+i]);
                 board[j*x+i].addActionListener(this);
             }
         }
+
+        printColors();
     }
 
     public void setButtons()
@@ -157,5 +152,25 @@ public class Board extends JFrame implements ActionListener, KeyListener
 
     @Override
     public void keyReleased(KeyEvent e) {}
+
+    private void setRectColors()
+    {
+
+    }
+
+    private void printColors(){
+        ListOfOrganisms l = new ListOfOrganisms(world);
+        for (int i = 0; i < 11; i++)
+        {
+            JPanel rectangle = new JPanel();
+            rectangle.setBackground( new Color(l.orgList.get(i).getColor()));
+            rectangle.setBounds(x*SIZE + 80, i*30 + 50, 20, 20);
+            add( rectangle );
+
+            JLabel description = new JLabel(l.orgList.get(i).getName());
+            description.setBounds(x*SIZE + 110, i*30 + 50, 80, 20);
+            add(description);
+        }
+    }
 
 }

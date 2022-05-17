@@ -9,6 +9,7 @@ public class Grass extends Plant {
         super(w, x, y);
         force = 0;
         ID = 0;
-        color = 13434777;
+        color = 6736896;
+        name = "Grass";
     }
 }

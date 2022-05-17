@@ -9,6 +9,7 @@ public abstract class Organism {
     protected int born;
     protected int organismX, organismY, toX, toY;
     protected int color;
+    protected String name;
     protected World world;
     protected Random rand;
 
@@ -74,6 +75,10 @@ public abstract class Organism {
 
     public int getID() {
         return ID;
+    }
+
+    public String getName(){
+        return name;
     }
 
     public int getOrganismY() {
