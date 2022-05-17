@@ -1,22 +1,15 @@
 package com.world;
 
-import com.world.plants.*;
-import com.world.animals.*;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.ImageObserver;
-import java.text.AttributedCharacterIterator;
 
 
 public class Board extends JFrame implements ActionListener, KeyListener
 {
     public static final int SIZE = 20;
-    private Color[] colors;
-    JPanel listener;
-    protected JLabel instText, widthL, heightL;
-    protected JTextField inst, widthT, heightT;
+    protected JLabel widthL, heightL;
+    protected JTextField widthT, heightT;
     protected JButton button;
     protected JButton[] board;
     protected World world;
@@ -86,7 +79,7 @@ public class Board extends JFrame implements ActionListener, KeyListener
         for(int i=0; i < x; i++) {
             for(int j=0; j < y; j++) {
                 board[j*x+i] = new JButton();
-                board[j*x+i].setBounds(10 + i*SIZE, 10 + j*SIZE, SIZE, SIZE);
+                board[j*x+i].setBounds(10 + j*SIZE, 10 + i*SIZE, SIZE, SIZE);
                 board[j*x+i].setBackground(Color.WHITE);
             }
         }
@@ -94,10 +87,9 @@ public class Board extends JFrame implements ActionListener, KeyListener
 
     public void setColors()
     {
-        for(int i=0; i < x; i++) {
-            for(int j=0; j < y; j++) {
-                if (world.organisms[j * x + i] != null){ board[j*x+i].setBackground(new Color(world.organisms[j*x+i].getColor())); }
-            }
+        for(int i=0; i < x*y; i++) {
+            if (world.organisms[i] != null){ board[i].setBackground(new Color(world.organisms[i].getColor())); }
+            else if (world.organisms[i] == null){ board[i].setBackground(Color.WHITE); }
         }
     }
 
@@ -153,22 +145,17 @@ public class Board extends JFrame implements ActionListener, KeyListener
     @Override
     public void keyReleased(KeyEvent e) {}
 
-    private void setRectColors()
-    {
-
-    }
-
     private void printColors(){
         ListOfOrganisms l = new ListOfOrganisms(world);
         for (int i = 0; i < 11; i++)
         {
             JPanel rectangle = new JPanel();
             rectangle.setBackground( new Color(l.orgList.get(i).getColor()));
-            rectangle.setBounds(x*SIZE + 80, i*30 + 50, 20, 20);
+            rectangle.setBounds(x*SIZE + 80, i*30 + 10, 20, 20);
             add( rectangle );
 
             JLabel description = new JLabel(l.orgList.get(i).getName());
-            description.setBounds(x*SIZE + 110, i*30 + 50, 80, 20);
+            description.setBounds(x*SIZE + 110, i*30 + 10, 80, 20);
             add(description);
         }
     }

@@ -8,9 +8,8 @@ import java.util.Random;
 
 public class World {
     private static final int MAX_INITIATIVE = 8;
-    private static final int START_NUMBER_OF_ORGANISMS = 100;
+    private static final int START_NUMBER_OF_ORGANISMS = 15;
     private static final int DIFFRENT_ORGANISMS = 10;
-    private static final int GRASS = 0;
     protected Random rand;
     int worldX, worldY;
     int worldAge;
@@ -74,6 +73,7 @@ public class World {
                 organismsIniciative.get(i).get(j).action();
             }
         }
+        printArea();
 
         board.setColors();
         return true;
@@ -88,6 +88,22 @@ public class World {
             if (organisms[x*worldY+y] == null){
                 setNewOrganism(x, y, i%DIFFRENT_ORGANISMS);
             }
+        }
+    }
+
+    void printArea() {
+        for (int x=0; x<worldX; x++){
+            for (int y=0; y<worldY; y++){
+                System.out.print(y*worldX+x);
+                if (organisms[y*worldX+x] == null){
+                    System.out.print('-');
+                }
+                else{
+                    organisms[y*worldX+x].draw();
+                }
+                System.out.print(' ');
+            }
+            System.out.println('\n');
         }
     }
 
@@ -120,8 +136,43 @@ public class World {
         if (o != null){ organismsIniciative.get(o.getInitiative()).add(o); }
     }
 
+    public void move(int fromX, int fromY, int toX, int toY) {
+        int from = fromX*worldY+fromY;
+        int to = toX*worldY+toY;
+        if (organisms[to] == null && checkPosition(toX, toY) && organisms[from] != null){
+            organisms[to] = organisms[from];
+            organisms[from] = null;
+            organisms[to].setPosition(toX, toY);
+        }
+        else if(organisms[to] != null && checkPosition(toX, toY)){
+            //if (!organisms[to].collision(organisms[from])){
+            //    move(fromX, fromY, toX, toY);
+            //}
+        }
+    }
+
+    public int getWorldY() {
+        return worldY;
+    }
+
+    public boolean checkPosition(int x, int y) {
+        if(x < 0 || y < 0 || x >= worldX || y >= worldY){return false;}
+        return true;
+    }
+
     public int getAge(){
         return worldAge;
+    }
+
+    void deleteOrganism(int x, int y) {
+        int initiative = organisms[x*worldY+y].getInitiative();
+        for (int i = 0; i < organismsIniciative.get(initiative).size(); i++){
+            if (organismsIniciative.get(initiative).get(i) == organisms[x*worldY+y]){
+                if (organismsIniciative.get(initiative).get(i) == h){end = true;}
+                organismsIniciative.get(initiative).remove(i);
+            }
+        }
+        organisms[x*worldY+y] = null;
     }
 
 }

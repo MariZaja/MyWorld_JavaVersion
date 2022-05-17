@@ -24,7 +24,6 @@ public abstract class Plant extends Organism {
     }
 
     public void action() {
-        System.out.println("Plant action");
         setDestination(1);
         int spreading = rand.nextInt(probabilityOfSpreading);
         //if (world.checkPosition(toX, toY) && world.organisms[(toX*world.getWorldY())+toY] == NULL && (spreading == 0)){

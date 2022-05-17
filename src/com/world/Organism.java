@@ -22,28 +22,27 @@ public abstract class Organism {
         color = 16777215;
     }
 
-    /*bool Organism::collision(Organism *o) {
-        if (o->getForce() > this->getForce()){
-            world.setCommentary(0, o->getID(), this->getID());
+    public boolean collision(Organism o) {
+        if (o.getForce() > this.getForce()) {
+            //world.setCommentary(0, o->getID(), this->getID());
             world.deleteOrganism(organismX, organismY);
-        }
-    else if(o->getForce() < this->getForce()){
-            world.setCommentary(0, this->getID(), o->getID());
-            world.deleteOrganism(o->getOrganismX(), o->getOrganismY());
+        } else if (o.getForce() < this.getForce()) {
+            //world.setCommentary(0, this->getID(), o->getID());
+            world.deleteOrganism(o.getOrganismX(), o.getOrganismY());
             return true;
-        }
-    else if (o->getForce() == this->getForce()){
-            if(o->getID() == ID){
-                world.setCommentary(1, o->getID(), this->getID());
-                o->multiply(organismX, organismY);
+        } else if (o.getForce() == this.getForce()) {
+            if (o.getID() == ID) {
+                //world.setCommentary(1, o->getID(), this->getID());
+                //o.multiply(organismX, organismY);
                 return true;
-            }
-            else{
-                world.setCommentary(0, o->getID(), this->getID());
+            } else {
+                //world.setCommentary(0, o->getID(), this->getID());
                 world.deleteOrganism(organismX, organismY);
             }
         }
-    }*/
+        return false;
+    }
+
 
     public void action() {}
 
@@ -66,6 +65,10 @@ public abstract class Organism {
     public void setPosition(int x, int y) {
         organismX = x;
         organismY = y;
+    }
+
+    public void draw(){
+        System.out.print("o");
     }
 
     public void setDestination(int fields) {
