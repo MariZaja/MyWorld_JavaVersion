@@ -11,9 +11,9 @@ public abstract class Animal extends Organism {
 
     public void action() {
         setDestination(1);
-        //if (world.checkPosition(toX, toY)){
-        //    world.move(this->organismX, this->organismY, toX, toY);
-        //}
+        if (world.checkPosition(toX, toY)){
+            world.move(this.organismX, this.organismY, toX, toY);
+        }
     }
 
 }

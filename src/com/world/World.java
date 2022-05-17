@@ -16,7 +16,7 @@ public class World {
     boolean end;
     Board board;
     Human h;
-    Organism[] organisms;
+    public Organism[] organisms;
     ArrayList<ArrayList<Organism>> organismsIniciative;
     Console console;
 
@@ -116,9 +116,9 @@ public class World {
                 o = new Dandelion(this, x, y);
             } case 2 -> { //GUARANA
                 o = new Guarana(this, x, y);
-            } case 3 -> { //WOLFBERRIES
+            } case 3 -> { //WOLF-BERRIES
                 o = new WolfBerries(this, x, y);
-            } case 4 -> { //HOGWEED
+            } case 4 -> { //HOG-WEED
                 o = new Hogweed(this, x, y);
             } case 5 -> { //WOLF
                 o = new Wolf(this, x, y);
@@ -164,7 +164,7 @@ public class World {
         return worldAge;
     }
 
-    void deleteOrganism(int x, int y) {
+    public void deleteOrganism(int x, int y) {
         int initiative = organisms[x*worldY+y].getInitiative();
         for (int i = 0; i < organismsIniciative.get(initiative).size(); i++){
             if (organismsIniciative.get(initiative).get(i) == organisms[x*worldY+y]){

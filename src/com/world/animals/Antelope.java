@@ -15,9 +15,9 @@ public class Antelope extends Animal {
 
     public void action() {
         setDestination(2);
-        //if (world.checkPosition(toX, toY)){
-        //    world.move(this->organismX, this->organismY, toX, toY);
-        //}
+        if (world.checkPosition(toX, toY)){
+            world.move(this.organismX, this.organismY, toX, toY);
+        }
     }
 
     /*bool Antelope::collision(Organism *o) {
