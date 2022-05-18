@@ -68,8 +68,7 @@ public class World {
         //com->author();
 
         for (int i=MAX_INITIATIVE-1; i>=0; i--){
-            int size = organismsIniciative.get(i).size();
-            for (int j=0; j<size; j++){
+            for (int j=0; j<organismsIniciative.get(i).size(); j++){
                 organismsIniciative.get(i).get(j).action();
             }
         }

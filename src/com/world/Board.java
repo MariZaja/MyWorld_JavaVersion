@@ -39,11 +39,11 @@ public class Board extends JFrame implements ActionListener, KeyListener
         add(heightL);
 
         widthT = new JTextField("");
-        widthT.setBounds(70, 20, 50, 20);
+        widthT.setBounds(70, 70, 50, 20);
         add(widthT);
 
         heightT = new JTextField("");
-        heightT.setBounds(70, 70, 50, 20);
+        heightT.setBounds(70, 20, 50, 20);
         add(heightT);
 
         button = new JButton("OK");
@@ -151,11 +151,11 @@ public class Board extends JFrame implements ActionListener, KeyListener
         {
             JPanel rectangle = new JPanel();
             rectangle.setBackground( new Color(l.orgList.get(i).getColor()));
-            rectangle.setBounds(x*SIZE + 80, i*30 + 10, 20, 20);
+            rectangle.setBounds(y*SIZE + 80, i*30 + 10, 20, 20);
             add( rectangle );
 
             JLabel description = new JLabel(l.orgList.get(i).getName());
-            description.setBounds(x*SIZE + 110, i*30 + 10, 80, 20);
+            description.setBounds(y*SIZE + 110, i*30 + 10, 80, 20);
             add(description);
         }
     }

@@ -1,9 +1,8 @@
 package com.world.animals;
 
-import com.world.Organism;
 import com.world.World;
 
-public class Human extends Organism {
+public class Human extends Animal {
 
     protected int direction;
     protected int tempForce;

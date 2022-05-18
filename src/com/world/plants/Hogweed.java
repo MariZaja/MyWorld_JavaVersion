@@ -17,7 +17,7 @@ public class Hogweed extends Plant{
     public void action() {
         super.action();
         int a = -1, b = -1;
-        int target = (organismX+a)*world.getWorldY()+(organismY+b);
+        int target;
         while(a<2){
             while(b<2){
                 target = (organismX+a)*world.getWorldY()+(organismY+b);
@@ -27,7 +27,7 @@ public class Hogweed extends Plant{
                         world.deleteOrganism(organismX+a, organismY+b);
                     }
                 }b++;
-            }b--;
+            }b=-1;
             a++;
         }
     }
